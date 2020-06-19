@@ -1,0 +1,182 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-size: 18px;
+  font-family: 'Poppins', sans-serif;
+}
+a {
+  text-decoration: none;
+}
+a,
+span,
+p {
+  color: hsl(257, 7%, 63%);
+}
+.container,
+#header,
+#section-1 {
+  width: 85%;
+  margin: auto;
+}
+.button-primary-full-rounded,
+#header .signup,
+#section-1 #get-started {
+  background-color: hsl(180, 66%, 49%);
+  color: white;
+  padding: 5px 20px;
+  border-radius: 50px;
+}
+.button-primary-full-rounded:hover {
+  background-color: hsl(180, 66%, 59%);
+}
+#header {
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+#header #desktop-navigation {
+  display: none;
+  align-items: center;
+  justify-content: space-between;
+}
+@media (min-width: 850px) {
+  #header #desktop-navigation {
+    display: flex;
+  }
+}
+#header #mobile-navigation {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+@media (min-width: 850px) {
+  #header #mobile-navigation {
+    display: none;
+  }
+}
+#header .links a {
+  font-size: 15px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+#header .links a:hover,
+#header .links a:active,
+#header .links a:focus {
+  font-weight: 700;
+  color: hsl(260, 8%, 14%);
+}
+#header .signup:hover,
+#header .signup:active,
+#header .signup:focus {
+  font-weight: 500;
+  background-color: hsl(180, 66%, 59%);
+}
+#header div {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+#header .side-drawer {
+  display: none;
+  margin-top: 20px;
+  background-color: #3a3053;
+  list-style: none;
+  text-align: center;
+  border-radius: 10px;
+  padding: 20px;
+}
+#header .side-drawer li {
+  margin: 20px auto;
+}
+#header .side-drawer hr {
+  border-color: hsla(0, 0%, 75%, 0.7);
+}
+#header .side-drawer a {
+  color: white;
+}
+#header .side-drawer .signup {
+  display: block;
+  width: 100%;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  box-sizing: border-box;
+  margin: auto;
+}
+#header .hamburguer {
+  display: block;
+}
+@media (min-width: 850px) {
+  #header .hamburguer {
+    display: none;
+  }
+}
+#header .hamburguer {
+  outline: none;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+#header .hamburguer div {
+  background-color: hsl(257, 7%, 63%);
+  border-radius: 100px;
+  width: 30px;
+  height: 4px;
+  margin-bottom: 4px;
+}
+#header .hamburguer:hover div {
+  background-color: hsl(0, 0%, 75%);
+}
+#section-1 {
+  display: block;
+  align-items: center;
+  margin: 30px auto;
+}
+#section-1 .image-container {
+  order: 2;
+}
+#section-1 div:last-child {
+  order: 1;
+}
+#section-1 img {
+  display: block;
+  width: 100%;
+}
+#section-1 h2 {
+  font-size: 2em;
+  line-height: 1.2em;
+  color: hsl(260, 8%, 14%);
+  font-weight: 700;
+  margin-top: 30px;
+}
+@media (min-width: 850px) {
+  #section-1 h2 {
+    font-size: 2.5em;
+  }
+}
+@media (min-width: 1200px) {
+  #section-1 h2 {
+    font-size: 3.2em;
+  }
+}
+#section-1 #get-started {
+  display: block;
+  text-align: center;
+  width: 150px;
+  margin-top: 30px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+#section-1 #get-started:hover,
+#section-1 #get-started:active,
+#section-1 #get-started:focus {
+  background-color: hsl(180, 66%, 59%);
+}
+@media (min-width: 850px) {
+  #section-1 {
+    display: flex;
+  }
+}
+#section-2 {
+  background-color: #eff1f7;
+}

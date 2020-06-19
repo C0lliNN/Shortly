@@ -12,54 +12,71 @@
       href="./images/favicon-32x32.png"
     />
 
-    <title>Frontend Mentor | Shortly URL shortening API Challenge</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
 
-    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-    <style>
-      .attribution {
-        font-size: 11px;
-        text-align: center;
-      }
-      .attribution a {
-        color: hsl(228, 45%, 44%);
-      }
-    </style>
+    <link rel="stylesheet" href="css/index.css" />
+
+    <title>Shortly URL shortening API</title>
   </head>
   <body>
-    <header>
-      <nav>
+    <header id="header">
+      <nav id="desktop-navigation">
         <div>
           <h1>
             <a href="#"><img src="images/logo.svg" alt="Shortly" /></a>
           </h1>
-          <a href="#">Features</a>
-          <a href="#">Pricing</a>
-          <a href="#">Resource</a>
+          <div class="links">
+            <a href="#">Features</a>
+            <a href="#">Pricing</a>
+            <a href="#">Resource</a>
+          </div>
         </div>
 
-        <div>
+        <div class="links">
           <a href="#">Login</a>
-          <a href="#">Sign Up</a>
+          <a href="#" class="signup">Sign Up</a>
         </div>
       </nav>
-      <div></div>
+
+      <nav id="mobile-navigation">
+        <h1>
+          <a href="#"><img src="images/logo.svg" alt="Shortly" /></a>
+        </h1>
+        <button class="hamburguer">
+          <div></div>
+          <div></div>
+          <div></div>
+        </button>
+      </nav>
+
+      <ul class="side-drawer">
+        <li><a href="#">Features</a></li>
+        <li><a href="#">Pricing</a></li>
+        <li><a href="#">Resource</a></li>
+        <li><hr /></li>
+        <li><a href="#">Login</a></li>
+        <li><a href="#" class="signup">Sign Up</a></li>
+      </ul>
     </header>
 
-    <section>
+    <section id="section-1">
+      <div class="image-container">
+        <img src="images/illustration-working.svg" alt="Illustration" />
+      </div>
       <div>
         <h2>More than just shorter links</h2>
         <p>
           Build your brand’s recognition and get detailed insights on how your
           links are performing.
         </p>
-        <a href="#">Get Started</a>
-      </div>
-      <div class="image-container">
-        <img src="images/illustration-working.svg" alt="Illustration" />
+        <a href="#" id="get-started">Get Started</a>
       </div>
     </section>
 
-    <section>
+    <section id="section-2">
       <div class="form-group">
         <form action="#">
           <input type="text" placeholder="Shorten a Link Here" />
@@ -95,9 +112,7 @@
           </div>
         </li>
       </ul>
-    </section>
 
-    <section>
       <div>
         <h3>Advanced Statistics</h3>
         <p>
@@ -197,5 +212,6 @@
         </div>
       </div>
     </footer>
+    <script src="js/app.js"></script>
   </body>
 </html>

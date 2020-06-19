@@ -1,0 +1,3 @@
+- Create Two separate Navigations
+- Commit after Header Creation
+- Translate to Portuguese
