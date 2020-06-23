@@ -448,3 +448,71 @@ p {
     padding-right: 20px;
   }
 }
+
+#section-4 {
+  text-align: center;
+  background: url('../images/bg-boost-desktop.svg') @dark-violet;
+  padding: 40px;
+  h3 {
+    color: white;
+    font-size: 26px;
+  }
+  a {
+    &:extend(.button-primary);
+    display: block;
+    width: 120px;
+    margin: 20px auto;
+    padding: 8px 20px;
+    border-radius: 100px;
+  }
+}
+
+footer {
+  padding: 50px;
+  background-color: #232027;
+  text-align: center;
+  color: white;
+  h4 {
+    font-size: 16px;
+  }
+
+  ul {
+    list-style: none;
+  }
+
+  div {
+    @media (max-width: @mobile-size) {
+      margin: 40px auto;
+      list-style: none;
+    }
+  }
+
+  a {
+    font-size: 14px;
+  }
+
+  .logo {
+    width: default;
+    img {
+      filter: brightness(10);
+    }
+    @media (min-width: @mobile-size) {
+      width: 200px;
+    }
+  }
+
+  .social {
+    display: flex;
+    justify-content: center;
+    div {
+      margin: auto 10px;
+    }
+  }
+
+  @media (min-width: @mobile-size) {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-around;
+    text-align: left;
+  }
+}

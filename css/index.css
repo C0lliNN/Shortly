@@ -26,7 +26,8 @@ p {
 #header .signup,
 #section-1 #get-started,
 #section-2 button,
-#section-2 .shorted-links li div button {
+#section-2 .shorted-links li div button,
+#section-4 a {
   background-color: hsl(180, 66%, 49%);
   color: #fff;
   padding: 5px 20px;
@@ -407,4 +408,67 @@ p {
   margin-top: 15px;
   padding-left: 20px;
   padding-right: 20px;
+}
+#section-4 {
+  text-align: center;
+  background: url('../images/bg-boost-desktop.svg') hsl(257, 27%, 26%);
+  padding: 40px;
+}
+#section-4 h3 {
+  color: white;
+  font-size: 26px;
+}
+#section-4 a {
+  display: block;
+  width: 120px;
+  margin: 20px auto;
+  padding: 8px 20px;
+  border-radius: 100px;
+}
+footer {
+  padding: 50px;
+  background-color: #232027;
+  text-align: center;
+  color: white;
+}
+footer h4 {
+  font-size: 16px;
+}
+footer ul {
+  list-style: none;
+}
+@media (max-width: 850px) {
+  footer div {
+    margin: 40px auto;
+    list-style: none;
+  }
+}
+footer a {
+  font-size: 14px;
+}
+footer .logo {
+  width: default;
+}
+footer .logo img {
+  filter: brightness(10);
+}
+@media (min-width: 850px) {
+  footer .logo {
+    width: 200px;
+  }
+}
+footer .social {
+  display: flex;
+  justify-content: center;
+}
+footer .social div {
+  margin: auto 10px;
+}
+@media (min-width: 850px) {
+  footer {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-around;
+    text-align: left;
+  }
 }
