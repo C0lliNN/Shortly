@@ -16,20 +16,21 @@ p {
 }
 .container,
 #header,
-#section-1 {
+#section-1,
+#section-2 > div > div,
+#section-3 > div {
   width: 85%;
   margin: auto;
 }
-.button-primary-full-rounded,
+.button-primary,
 #header .signup,
-#section-1 #get-started {
+#section-1 #get-started,
+#section-2 button,
+#section-2 .shorted-links li div button {
   background-color: hsl(180, 66%, 49%);
-  color: white;
+  color: #fff;
   padding: 5px 20px;
-  border-radius: 50px;
-}
-.button-primary-full-rounded:hover {
-  background-color: hsl(180, 66%, 59%);
+  cursor: pointer;
 }
 #header {
   padding-top: 30px;
@@ -66,10 +67,14 @@ p {
   font-weight: 700;
   color: hsl(260, 8%, 14%);
 }
+#header .signup {
+  border-radius: 50px;
+}
 #header .signup:hover,
 #header .signup:active,
 #header .signup:focus {
-  font-weight: 500;
+  color: white !important;
+  font-weight: 500 !important;
   background-color: hsl(180, 66%, 59%);
 }
 #header div {
@@ -80,7 +85,7 @@ p {
 #header .side-drawer {
   display: none;
   margin-top: 20px;
-  background-color: #3a3053;
+  background-color: hsl(257, 27%, 26%);
   list-style: none;
   text-align: center;
   border-radius: 10px;
@@ -102,6 +107,11 @@ p {
   padding-bottom: 8px;
   box-sizing: border-box;
   margin: auto;
+}
+#header .side-drawer .signup:hover {
+  color: white !important;
+  font-weight: 500 !important;
+  background-color: hsl(180, 66%, 59%);
 }
 #header .hamburguer {
   display: block;
@@ -160,6 +170,7 @@ p {
   }
 }
 #section-1 #get-started {
+  border-radius: 50px;
   display: block;
   text-align: center;
   width: 150px;
@@ -179,4 +190,221 @@ p {
 }
 #section-2 {
   background-color: #eff1f7;
+  margin-top: 100px;
+  padding-bottom: 50px;
+  box-sizing: border-box;
+}
+#section-2 > div {
+  background: linear-gradient(180deg, #ffffff 50%, #eff1f7 50%);
+}
+#section-2 > div > div {
+  background: url('../images/bg-boost-desktop.svg') hsl(257, 27%, 26%);
+  padding: 30px;
+  padding-bottom: 0;
+  box-sizing: border-box;
+  border-radius: 5px;
+}
+#section-2 > div > div > div {
+  display: block;
+}
+@media (min-width: 700px) {
+  #section-2 > div > div > div {
+    display: flex;
+  }
+}
+#section-2 input {
+  outline: none;
+  border: none;
+  display: block;
+  font-size: 16px;
+  padding: 10px;
+  border-radius: 5px;
+  box-sizing: border-box;
+  flex-grow: 2;
+}
+#section-2 input.invalid {
+  border: 2px solid rgba(255, 0, 0, 0.616);
+}
+#section-2 input.invalid::placeholder {
+  color: rgba(247, 80, 80, 0.699);
+}
+@media (max-width: 700px) {
+  #section-2 input {
+    width: 100%;
+  }
+}
+#section-2 button {
+  border: none;
+  outline: none;
+  display: block;
+  box-sizing: border-box;
+  border-radius: 5px;
+  font-weight: 700;
+  margin-left: 15px;
+}
+#section-2 button:hover {
+  background-color: hsl(180, 66%, 59%);
+}
+@media (max-width: 700px) {
+  #section-2 button {
+    width: 100%;
+    margin-left: 0;
+    padding: 10px;
+    margin-top: 8px;
+  }
+}
+#section-2 .error {
+  color: #f75050;
+  font-size: 12px;
+  padding-top: 7px;
+  padding-bottom: 7px;
+  font-style: italic;
+  visibility: hidden;
+}
+#section-2 .shorted-links {
+  width: 85%;
+  margin: 20px auto;
+}
+#section-2 .shorted-links li {
+  display: block;
+  background-color: white;
+  border: 1px solid #e6e6e6;
+  padding: 15px;
+  border-radius: 10px;
+  margin: 10px auto;
+}
+#section-2 .shorted-links li p {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+@media (max-width: 700px) {
+  #section-2 .shorted-links li p {
+    border-bottom: 1px solid #d3d3d3;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+  }
+}
+#section-2 .shorted-links li div {
+  display: block;
+}
+#section-2 .shorted-links li div a {
+  font-size: 16px;
+  color: hsl(180, 66%, 49%);
+}
+#section-2 .shorted-links li div button {
+  display: block;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  margin-left: 0;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+@media (min-width: 700px) {
+  #section-2 .shorted-links li div button {
+    margin-left: 15px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+  }
+}
+#section-2 .shorted-links li div button.copied {
+  background-color: hsl(257, 27%, 26%);
+}
+@media (min-width: 700px) {
+  #section-2 .shorted-links li div {
+    display: flex;
+    align-items: center;
+  }
+}
+@media (min-width: 700px) {
+  #section-2 .shorted-links li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+#section-2 .shorted-links p {
+  color: black;
+  margin: 0;
+  padding: 0;
+}
+#section-3 {
+  background-color: #eff1f7;
+  padding: 30px;
+}
+#section-3 .statistics {
+  width: 100%;
+  margin: auto;
+}
+#section-3 .statistics h3,
+#section-3 .statistics p {
+  text-align: center;
+}
+#section-3 .statistics h3 {
+  font-size: 28px;
+}
+#section-3 .statistics p {
+  font-size: 16px;
+}
+@media (min-width: 850px) {
+  #section-3 .statistics {
+    width: 60%;
+  }
+}
+#section-3 .characteristics {
+  margin: 80px auto;
+}
+#section-3 .characteristics > div {
+  min-height: 300px;
+  background-color: #fff;
+}
+#section-3 .characteristics > div > div {
+  background: linear-gradient(0deg, #ffffff 50%, #eff1f7 50%);
+  padding: 20px;
+}
+#section-3 .characteristics > div > div > div {
+  display: flex;
+  width: 50px;
+  height: 50px;
+  padding: 7px;
+  border-radius: 100%;
+  align-items: center;
+  justify-content: center;
+  background-color: hsl(257, 27%, 26%);
+}
+#section-3 .characteristics > div > div > div img {
+  width: 35px;
+}
+@media (min-width: 850px) {
+  #section-3 .characteristics {
+    display: flex;
+    justify-content: center;
+    height: 400px;
+  }
+}
+#section-3 .brand {
+  align-self: flex-start;
+}
+#section-3 .records {
+  align-self: center;
+}
+@media (min-width: 850px) {
+  #section-3 .records {
+    margin: auto 20px;
+  }
+}
+#section-3 .customizable {
+  align-self: flex-end;
+}
+#section-3 h4 {
+  padding-left: 20px;
+  box-sizing: border-box;
+}
+#section-3 p {
+  font-size: 14px;
+  margin-top: 15px;
+  padding-left: 20px;
+  padding-right: 20px;
 }
