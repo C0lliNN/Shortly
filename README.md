@@ -2,7 +2,7 @@
 
 ![Design preview for the Shortly URL shortening API coding challenge](./design/desktop-preview.jpg)
 
-[Demo](https://c0llinn.github.io/Shortly/)
+### [Demo](https://c0llinn.github.io/Shortly/)
 
 ## Overview
 
