@@ -4,7 +4,8 @@
   "description": "A Landing Page for URL Shortener developed in HTML, LESS, Vanilla JS",
   "main": "src/js/index.js",
   "scripts": {
-    "build": "webpack --mode=production"
+    "build": "webpack --mode=production",
+    "dev": "webpack serve --mode=development"
   },
   "repository": {
     "type": "git",
