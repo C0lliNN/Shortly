@@ -47,6 +47,7 @@ p {
   color: #fff;
   padding: 5px 20px;
   cursor: pointer;
+  transition: all 0.2s ease-in-out;
 }
 
 #header {
@@ -74,14 +75,18 @@ p {
     }
   }
 
+  h1 > a {
+    display: flex;
+    align-items: center;
+  }
+
   .links a {
-    font-size: @default-font-size - 3px;
+    font-size: calc(@default-font-size - 3px);
     margin-left: 20px;
     margin-right: 20px;
     &:hover,
     &:active,
     &:focus {
-      font-weight: @font-weight-2;
       color: @very-dark-violet;
     }
   }
@@ -92,7 +97,7 @@ p {
     &:hover,
     &:active,
     &:focus {
-      color: white !important;
+      color: #fff !important;
       font-weight: @font-weight-1 !important;
       background-color: @cyan2;
     }
@@ -119,7 +124,12 @@ p {
       border-color: fade(@gray, 70%);
     }
     a {
-      color: white;
+      color: #fff;
+      transition: all 0.2s ease-in-out;
+      &:active,
+      &:hover {
+        color: #ddd;
+      }
     }
 
     .signup {
@@ -131,7 +141,7 @@ p {
       margin: auto;
 
       &:hover {
-        color: white !important;
+        color: #fff !important;
         font-weight: @font-weight-1 !important;
         background-color: @cyan2;
       }
@@ -297,7 +307,7 @@ p {
     margin: 20px auto;
     li {
       display: block;
-      background-color: white;
+      background-color: #fff;
       border: 1px solid rgb(230, 230, 230);
       padding: 15px;
       border-radius: 10px;
@@ -454,7 +464,7 @@ p {
   background: url('../images/bg-boost-desktop.svg') @dark-violet;
   padding: 40px;
   h3 {
-    color: white;
+    color: #fff;
     font-size: 26px;
   }
   a {
@@ -471,7 +481,7 @@ footer {
   padding: 50px;
   background-color: #232027;
   text-align: center;
-  color: white;
+  color: #fff;
   h4 {
     font-size: 16px;
   }
