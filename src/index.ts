@@ -1,7 +1,11 @@
+/// <reference path="types.d.ts" />
+
+import './assets/less/index.less';
+
 document.body.onload = () => {
   let isMobileNavShowing = false;
 
-  const sideDrawer = document.querySelector('.side-drawer');
+  const sideDrawer = document.querySelector('.side-drawer') as HTMLElement;
 
   const hamburguerButton = document.querySelector('.hamburguer');
 
@@ -22,7 +26,7 @@ document.body.onload = () => {
     }
   });
 
-  const generateId = (length) => {
+  const generateId = (length: number) => {
     let result = '';
     const characters =
       'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
@@ -33,12 +37,16 @@ document.body.onload = () => {
     return result;
   };
 
-  const shortButton = document.querySelector('#section-2 button');
-  const errorMessage = document.querySelector('.error');
+  const shortButton = document.querySelector(
+    '#section-2 button',
+  ) as HTMLButtonElement;
+  const errorMessage = document.querySelector('.error') as HTMLElement;
   const shortedLinks = document.querySelector('.shorted-links');
 
   shortButton.addEventListener('click', () => {
-    const input = document.querySelector('#section-2 input');
+    const input = document.querySelector(
+      '#section-2 input',
+    ) as HTMLInputElement;
 
     const linkRegex = /[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/;
 
@@ -56,8 +64,8 @@ document.body.onload = () => {
       button.addEventListener('click', () => {
         var data = [
           new ClipboardItem({
-            'text/plain': new Blob([shortedLink], { type: 'text/plain' })
-          })
+            'text/plain': new Blob([shortedLink], { type: 'text/plain' }),
+          }),
         ];
         navigator.clipboard.write(data).then(
           () => {
@@ -66,7 +74,7 @@ document.body.onload = () => {
           },
           () => {
             console.error('Unable to write to clipboard. :-(');
-          }
+          },
         );
       });
 

@@ -1,5 +1,6 @@
 .DS_Store
 *.log
+dist
 style-guide.md
 todo.txt
 node_modules
