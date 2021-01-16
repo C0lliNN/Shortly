@@ -420,6 +420,7 @@ p {
     & > div {
       min-height: 300px;
       background-color: #fff;
+      position: relative;
       & > div {
         background: linear-gradient(0deg, #ffffff 50%, #eff1f7 50%);
 
@@ -437,6 +438,18 @@ p {
           img {
             width: 35px;
           }
+        }
+      }
+      @media (min-width: @mobile-size) {
+        &:not(:last-child):before {
+          content: '';
+          width: 20px;
+          height: 6px;
+          background-color: @cyan2;
+          position: absolute;
+          transform: translateX(100%);
+          top: 60%;
+          right: 0;
         }
       }
     }
