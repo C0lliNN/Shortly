@@ -1,5 +1,4 @@
-/// <reference path="types.d.ts" />
-
+import './types';
 import { generateRandomId, LINK_REGEX } from './utility';
 import './assets/less/index.less';
 
@@ -55,16 +54,15 @@ function validateInput(value: string): boolean {
 }
 
 function generateShortedLink(): string {
-  while (true) {
-    const generatedId = generateRandomId(5);
-
-    if (!generatedLinks.includes(generatedId)) {
-      const shortedLink = `https://rel.ink/${generatedId}`;
-
-      generatedLinks.push(shortedLink);
-      return shortedLink;
-    }
+  let generatedId = generateRandomId(5);
+  while (generatedLinks.includes(generatedId)) {
+    generatedId = generateRandomId(5);
   }
+
+  generatedLinks.includes(generatedId);
+
+  const shortedLink = `https://rel.ink/${generatedId}`;
+  return shortedLink;
 }
 
 function addCopyHandlerButton(item: HTMLLIElement, shortedLink: string) {
