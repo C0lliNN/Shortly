@@ -4,6 +4,7 @@ import { generateRandomId, LINK_REGEX } from './utility';
 import './assets/less/index.less';
 
 let isMobileNavShowing = false;
+const generatedLinks: string[] = [];
 
 const sideDrawer = document.querySelector('.side-drawer') as HTMLElement;
 const hamburguerButton = document.querySelector('.hamburguer') as HTMLElement;
@@ -53,11 +54,17 @@ function validateInput(value: string): boolean {
   return !!(value && value.match(LINK_REGEX));
 }
 
-function generatedShortedLink(): string {
-  const generatedId = generateRandomId(5);
-  const shortedLink = `https://rel.ink/${generatedId}`;
+function generateShortedLink(): string {
+  while (true) {
+    const generatedId = generateRandomId(5);
 
-  return shortedLink;
+    if (!generatedLinks.includes(generatedId)) {
+      const shortedLink = `https://rel.ink/${generatedId}`;
+
+      generatedLinks.push(shortedLink);
+      return shortedLink;
+    }
+  }
 }
 
 function addCopyHandlerButton(item: HTMLLIElement, shortedLink: string) {
@@ -101,7 +108,7 @@ function handleShortUrl() {
   const originLink = input.value;
 
   if (validateInput(originLink)) {
-    const shortedLink = generatedShortedLink();
+    const shortedLink = generateShortedLink();
     const item = createShortedLinkItem(originLink, shortedLink);
 
     addCopyHandlerButton(item, shortedLink);
