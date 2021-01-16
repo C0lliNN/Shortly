@@ -1,0 +1,25 @@
+{
+  "name": "shortly",
+  "version": "1.0.0",
+  "description": "A Landing Page for URL Shortener developed in HTML, LESS, Vanilla JS",
+  "main": "src/js/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/C0lliNN/Shortly.git"
+  },
+  "keywords": [
+    "Shortly",
+    "Less",
+    "Landing",
+    "Page"
+  ],
+  "author": "Raphael Collin",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/C0lliNN/Shortly/issues"
+  },
+  "homepage": "https://github.com/C0lliNN/Shortly#readme"
+}
