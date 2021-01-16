@@ -526,6 +526,11 @@ footer {
 
   a {
     font-size: 14px;
+    transition: all 0.2s ease-in-out;
+    &:hover,
+    &:active {
+      color: @gray;
+    }
   }
 
   .logo {
@@ -541,7 +546,8 @@ footer {
   .social {
     display: flex;
     justify-content: center;
-    div {
+    a {
+      display: block;
       margin: auto 10px;
     }
   }
