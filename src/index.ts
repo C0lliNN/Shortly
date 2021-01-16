@@ -1,21 +1,14 @@
 /// <reference path="types.d.ts" />
 
+import { generateRandomId, LINK_REGEX } from './utility';
 import './assets/less/index.less';
 
-document.body.onload = () => {
-  let isMobileNavShowing = false;
+let isMobileNavShowing = false;
 
-  const sideDrawer = document.querySelector('.side-drawer') as HTMLElement;
+const sideDrawer = document.querySelector('.side-drawer') as HTMLElement;
+const hamburguerButton = document.querySelector('.hamburguer') as HTMLElement;
 
-  const hamburguerButton = document.querySelector('.hamburguer');
-
-  window.onresize = () => {
-    if (isMobileNavShowing && window.innerWidth >= 850) {
-      sideDrawer.style.display = 'none';
-      isMobileNavShowing = false;
-    }
-  };
-
+function handleHamburguerButtonClick() {
   hamburguerButton.addEventListener('click', () => {
     isMobileNavShowing = !isMobileNavShowing;
 
@@ -25,66 +18,121 @@ document.body.onload = () => {
       sideDrawer.style.display = 'none';
     }
   });
+}
 
-  const generateId = (length: number) => {
-    let result = '';
-    const characters =
-      'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-    const charactersLength = characters.length;
-    for (let i = 0; i < length; i++) {
-      result += characters.charAt(Math.floor(Math.random() * charactersLength));
+function handleWindowResize() {
+  window.onresize = () => {
+    if (isMobileNavShowing && window.innerWidth >= 850) {
+      sideDrawer.style.display = 'none';
+      isMobileNavShowing = false;
     }
-    return result;
   };
+}
 
-  const shortButton = document.querySelector(
-    '#section-2 button',
-  ) as HTMLButtonElement;
-  const errorMessage = document.querySelector('.error') as HTMLElement;
-  const shortedLinks = document.querySelector('.shorted-links');
+function setUpNavigation() {
+  handleHamburguerButtonClick();
+  handleWindowResize();
+}
 
-  shortButton.addEventListener('click', () => {
-    const input = document.querySelector(
-      '#section-2 input',
-    ) as HTMLInputElement;
+function createShortedLinkItem(
+  originalLink: string,
+  generatedLink: string,
+): HTMLLIElement {
+  const item = document.createElement('li');
 
-    const linkRegex = /[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/;
+  item.innerHTML = `<p>${originalLink}</p>
+    <div>
+      <a href="#">${generatedLink}</a>
+      <button>Copy</button>
+    </div>`;
 
-    if (input.value && input.value.match(linkRegex)) {
-      const shortedLink = `https://rel.ink/${generateId(5)}`;
+  return item;
+}
 
-      const item = document.createElement('li');
-      item.innerHTML = `<p>${input.value}</p>
-        <div>
-          <a href="#">${shortedLink}</a>
-          <button>Copy</button>
-        </div>`;
+function validateInput(value: string): boolean {
+  return !!(value && value.match(LINK_REGEX));
+}
 
-      const button = item.querySelector('button');
-      button.addEventListener('click', () => {
-        var data = [
-          new ClipboardItem({
-            'text/plain': new Blob([shortedLink], { type: 'text/plain' }),
-          }),
-        ];
-        navigator.clipboard.write(data).then(
-          () => {
-            button.className = 'copied';
-            button.innerHTML = 'Copied!';
-          },
-          () => {
-            console.error('Unable to write to clipboard. :-(');
-          },
-        );
-      });
+function generatedShortedLink(): string {
+  const generatedId = generateRandomId(5);
+  const shortedLink = `https://rel.ink/${generatedId}`;
 
-      shortedLinks.appendChild(item);
+  return shortedLink;
+}
 
-      input.className = '';
-      errorMessage.style.visibility = 'hidden';
-    } else {
-      input.className = 'invalid';
-      errorMessage.style.visibility = 'visible';
+function addCopyHandlerButton(item: HTMLLIElement, shortedLink: string) {
+  const button = item.querySelector('button');
+
+  button.addEventListener('click', async () => {
+    const data = [
+      new ClipboardItem({
+        'text/plain': new Blob([shortedLink], { type: 'text/plain' }),
+      }),
+    ];
+
+    try {
+      await navigator.clipboard.write(data);
+      button.className = 'copied';
+      button.innerHTML = 'Copied!';
+    } catch (error) {
+      console.error('Unable to write to clipboard. :-(');
     }
   });
-};
+}
+
+function showErrorMessage(element: HTMLElement, input: HTMLInputElement) {
+  input.className = 'invalid';
+  element.style.visibility = 'visible';
+}
+
+function hideErrorMessage(element: HTMLElement, input: HTMLInputElement) {
+  input.className = '';
+  element.style.visibility = 'hidden';
+}
+
+function clearInput(input: HTMLInputElement) {
+  input.value = '';
+}
+
+function handleShortUrl() {
+  const input = document.querySelector('#section-2 input') as HTMLInputElement;
+  const errorMessage = document.querySelector('.error') as HTMLElement;
+
+  const originLink = input.value;
+
+  if (validateInput(originLink)) {
+    const shortedLink = generatedShortedLink();
+    const item = createShortedLinkItem(originLink, shortedLink);
+
+    addCopyHandlerButton(item, shortedLink);
+
+    const links = document.querySelector('.shorted-links') as HTMLElement;
+    links.appendChild(item);
+
+    hideErrorMessage(errorMessage, input);
+    clearInput(input);
+  } else {
+    showErrorMessage(errorMessage, input);
+  }
+}
+
+function setUpShortForm() {
+  const button = document.querySelector('#section-2 button') as HTMLElement;
+
+  button.addEventListener('click', handleShortUrl);
+
+  const input = document.querySelector('#section-2 input') as HTMLInputElement;
+
+  input.addEventListener('keyup', (e) => {
+    if (e.key === 'Enter') {
+      handleShortUrl();
+    }
+  });
+}
+
+function handleDocumentLoad() {
+  setUpNavigation();
+  setUpShortForm();
+}
+
+document.body.onload = handleDocumentLoad;
