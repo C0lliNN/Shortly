@@ -6,7 +6,7 @@
 
 ## Overview
 
-A fully-responsive interactive Landing Page developed in Typescript + Less.
+A fully-responsive and interactive Landing Page developed in Typescript + Less.
 
 Challenge from [Frontend Mentor](https://www.frontendmentor.io).
 
