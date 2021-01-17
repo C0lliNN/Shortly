@@ -1,15 +1,26 @@
 # Shortly
 
-![Design preview for the Shortly URL shortening API coding challenge](./design/desktop-preview.jpg)
+![Design preview for the Shortly URL shortening API coding challenge](https://i.imgur.com/CV5WM5n.png)
 
 ### [Demo](https://c0llinn.github.io/Shortly/)
 
 ## Overview
 
-That's a [Frontend Mentor](https://www.frontendmentor.io) challenge. I receive the design files for this Landing Page and I coded everything from scratch.
+A fully-responsive interactive Landing Page developed in Typescript + Less.
+
+Challenge from [Frontend Mentor](https://www.frontendmentor.io).
+
+## How to get started
+
+```
+yarn install && yarn dev
+```
 
 ## Technologies Used
 
 - HTML
 - Less
-- Vanilla JS
+- Typescript
+- Eslint
+- Webpack
+- Prettier
