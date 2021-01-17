@@ -1,4 +1,6 @@
-import './types';
+// eslint-disable-next-line @typescript-eslint/triple-slash-reference
+/// <reference path="types.d.ts"/>
+
 import { generateRandomId, LINK_REGEX } from './utility';
 import './assets/less/index.less';
 
